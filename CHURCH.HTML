@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Jesus Light — Arusha, Tanzania</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+  :root{--navy:#1a3556;--navy-dk:#112340;--navy-lt:#2b4a72;--gold:#c8a84b;--gold-lt:#e2c97e;--cream:#faf7f2;--cream-dk:#f0ebe0;--txt:#4a5568;--txt-lt:#718096;--r-lg:18px;--r-md:12px;--r-sm:8px;--sh-sm:0 4px 16px rgba(0,0,0,.07);--sh-md:0 8px 32px rgba(0,0,0,.12);--sh-lg:0 20px 48px rgba(0,0,0,.18);--tr:.3s ease}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Lato',Arial,sans-serif;background:var(--cream);color:var(--txt);line-height:1.6;overflow-x:hidden}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%}
+  button{font-family:inherit;cursor:pointer}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif}
+  .label{font-size:.68rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .gold-bar{width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));border-radius:2px}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem}
+  @media(min-width:640px){.wrap{padding:0 2rem}}
+  @media(min-width:1024px){.wrap{padding:0 2.5rem}}
+  .sec{padding:5rem 0}
+  @media(min-width:768px){.sec{padding:7rem 0}}
+  .g2{display:grid;grid-template-columns:1fr;gap:2rem}
+  @media(min-width:768px){.g2{grid-template-columns:1fr 1fr}}
+  .g3{display:grid;grid-template-columns:1fr;gap:1.5rem}
+  @media(min-width:640px){.g3{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.g3{grid-template-columns:repeat(3,1fr)}}
+  .g4{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+  @media(min-width:1024px){.g4{grid-template-columns:repeat(4,1fr)}}
+
+  /* BUTTONS */
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1.9rem;border-radius:50px;font-weight:700;font-size:.88rem;letter-spacing:.04em;transition:transform var(--tr),opacity var(--tr),background var(--tr),color var(--tr);border:2px solid transparent;white-space:nowrap}
+  .btn:hover{transform:scale(1.03)}
+  .btn-gold{background:var(--gold);color:var(--navy-dk)}.btn-gold:hover{opacity:.88}
+  .btn-ghost{border-color:rgba(245,240,232,.7);color:#f5f0e8}.btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .btn-og{border-color:var(--gold);color:var(--gold)}.btn-og:hover{background:var(--gold);color:var(--navy-dk)}
+  .w-full{width:100%}
+
+  /* CARDS */
+  .card{background:#fff;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);transition:transform var(--tr),box-shadow var(--tr)}
+  .card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg)}
+
+  /* IMAGES */
+  .ic{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .iw{overflow:hidden;position:relative}.iw:hover .ic{transform:scale(1.05)}
+  .img-fb{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-lt) 100%)}
+  .img-loading{background:linear-gradient(135deg,#1a3556 0%,#2b4a72 100%);position:relative;overflow:hidden}
+  .img-loading::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(200,168,75,.08) 50%,transparent 100%);animation:shimmer 1.8s infinite;transform:translateX(-100%)}
+  @keyframes shimmer{to{transform:translateX(100%)}}
+
+  /* NAV */
+  #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,35,64,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,168,75,.12);transition:background var(--tr),box-shadow var(--tr)}
+  #navbar.scrolled{background:rgba(17,35,64,1);box-shadow:0 4px 24px rgba(0,0,0,.28)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .nav-logo{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+  .nav-logo-ic{width:38px;height:38px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .nav-logo-txt{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:#f5f0e8;line-height:1.2}
+  .nav-links{display:none;list-style:none;gap:1.8rem;align-items:center}
+  @media(min-width:900px){.nav-links{display:flex}}
+  .nav-links a{color:rgba(245,240,232,.82);font-size:.87rem;font-weight:500;letter-spacing:.02em;transition:color .2s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .2s}
+  .nav-links a:hover{color:var(--gold-lt)}.nav-links a:hover::after{transform:scaleX(1)}
+
+  /* LANGUAGE PILL — clearly visible, always works offline */
+  .lang-pill{display:inline-flex;align-items:center;background:rgba(200,168,75,.2);border:2px solid rgba(200,168,75,.7);border-radius:50px;overflow:hidden;flex-shrink:0}
+  .lang-opt{padding:.32rem .9rem;font-size:.72rem;font-weight:900;letter-spacing:.1em;color:rgba(245,240,232,.75);transition:all .2s;cursor:pointer;border:none;background:transparent;text-transform:uppercase}
+  .lang-opt.active{background:var(--gold);color:var(--navy-dk);border-radius:50px}
+
+  /* HAMBURGER */
+  .ham{display:flex;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;padding:4px}
+  @media(min-width:900px){.ham{display:none}.mob-controls .lang-pill{display:none}}
+  .ham span{display:block;height:2px;background:#f5f0e8;border-radius:2px;transition:all .3s}
+  .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .ham.open span:nth-child(2){opacity:0}
+  .ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* MOBILE DRAWER */
+  #mob-nav{display:none;background:rgba(17,35,64,1);border-top:1px solid rgba(200,168,75,.15);padding:1.5rem 1.25rem 2rem}
+  #mob-nav.open{display:block}
+  #mob-nav a{display:block;padding:.75rem 0;color:rgba(245,240,232,.82);font-size:1rem;font-weight:500;border-bottom:1px solid rgba(255,255,255,.07);transition:color .2s}
+  #mob-nav a:hover{color:var(--gold-lt)}
+  #mob-nav .btn{width:100%;margin-top:1rem;justify-content:center}
+
+  /* HERO */
+  #hero{min-height:100svh;position:relative;display:flex;align-items:center;background-color:var(--navy-dk)}
+  #hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat}
+  #hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(150deg,rgba(17,35,64,.93) 0%,rgba(26,53,86,.82) 60%,rgba(26,53,86,.65) 100%)}
+  .hero-ct{position:relative;z-index:2;padding:8rem 0 4rem;max-width:680px}
+  .hero-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,5.2rem);font-weight:700;line-height:1.05;color:#f5f0e8;margin:.5rem 0 1.1rem}
+  .hero-sub{font-size:clamp(1rem,2.5vw,1.15rem);color:rgba(245,240,232,.82);line-height:1.75;margin-bottom:2rem;max-width:520px}
+  .hero-btns{display:flex;flex-wrap:wrap;gap:.75rem}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:2rem;margin-top:3.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.12)}
+  .hs-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1}
+  .hs-lbl{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,240,232,.55);margin-top:3px}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+  .fu{opacity:0;animation:fadeUp .9s ease forwards}
+  .d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}.d5{animation-delay:.7s}
+
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+  .scroll-bob{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:bob 1.8s ease-in-out infinite;z-index:2}
+
+  /* SCRIPTURE */
+  .scripture-strip{background:var(--navy);padding:3.5rem 1.5rem;text-align:center}
+  .scripture-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.2rem,3vw,1.6rem);line-height:1.6;color:var(--cream);max-width:780px;margin:0 auto .75rem}
+
+  /* ABOUT GALLERY */
+  .ag{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:420px;border-radius:var(--r-lg);overflow:hidden}
+  .ag .gm{grid-row:1/3}
+  .ag .iw{border-radius:var(--r-md);overflow:hidden}
+  @media(max-width:767px){.ag{grid-template-columns:1fr 1fr;grid-template-rows:220px 150px;height:auto}.ag .gm{grid-column:1/3;grid-row:auto}}
+
+  /* LEADERSHIP */
+  .ldr-iw{height:260px;position:relative}
+  .ldr-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,35,64,.85) 0%,transparent 55%);pointer-events:none}
+  .ldr-cap{position:absolute;bottom:0;left:0;right:0;padding:1rem 1.25rem}
+
+  /* CHURCH THUMB */
+  .cthumb{height:210px;position:relative}
+  .badge{position:absolute;top:12px;left:12px;padding:.25rem .75rem;border-radius:50px;font-size:.7rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+  .bg{background:var(--gold);color:var(--navy-dk)}
+  .bn{background:var(--navy);color:#f5f0e8}
+  .cmeta{display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--txt-lt);margin-top:.5rem}
+
+  /* ORPHANAGE */
+  .o-iw{position:relative;height:260px}
+  .o-iw .ic{height:260px}
+  .o-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,35,64,.82) 0%,transparent 55%)}
+  .o-badge{position:absolute;bottom:14px;left:16px}
+
+  /* TABS */
+  .tab-row{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+  .tab-btn{padding:.55rem 1.3rem;border-radius:50px;font-size:.83rem;font-weight:700;letter-spacing:.04em;border:2px solid transparent;background:var(--cream-dk);color:var(--navy);transition:all .25s}
+  .tab-btn:hover{border-color:var(--gold)}
+  .tab-btn.active{background:var(--navy);color:#f5f0e8;border-color:var(--navy)}
+  .tab-ct{display:none}.tab-ct.active{display:grid}
+
+  /* ACT CARDS */
+  .ac{background:#fff;border-radius:var(--r-md);padding:1.4rem;border-left:4px solid var(--gold);transition:box-shadow .25s,transform .25s;box-shadow:var(--sh-sm)}
+  .ac:hover{box-shadow:var(--sh-md);transform:translateY(-3px)}
+  .ac.nb{border-left-color:var(--navy)}
+
+  /* SERVICES */
+  .svc-card{background:#fff;border-radius:var(--r-lg);padding:2rem 1.5rem;text-align:center;box-shadow:var(--sh-sm);transition:transform var(--tr),box-shadow var(--tr)}
+  .svc-card:hover{transform:translateY(-5px);box-shadow:var(--sh-md)}
+  .svc-icon{width:3.5rem;height:3.5rem;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+
+  /* CONTACT */
+  .fg{margin-bottom:1.1rem}
+  .fl{display:block;font-size:.78rem;font-weight:700;letter-spacing:.05em;color:var(--navy);margin-bottom:.35rem;text-transform:uppercase}
+  .ff{width:100%;padding:.75rem 1rem;border-radius:var(--r-sm);border:1.5px solid #d4cfc7;background:#fff;font-family:'Lato',sans-serif;font-size:.95rem;color:var(--navy);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
+  .ff:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,168,75,.15)}
+  .ff::placeholder{color:#aaa}
+  .ci{display:flex;align-items:flex-start;gap:1rem}
+  .ci-ic{width:44px;height:44px;border-radius:50%;background:rgba(200,168,75,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .tbox{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);padding:1.25rem 1.5rem;margin-top:2rem}
+  .tr{display:flex;justify-content:space-between;align-items:center;padding:.45rem 0;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.07);color:#8b9bb4}
+  .tr:last-child{border-bottom:none}
+  .tr span:last-child{color:var(--gold);font-weight:700}
+  .cta-b{background:linear-gradient(135deg,rgba(200,168,75,.12),rgba(200,168,75,.04));border:1px solid rgba(200,168,75,.28);border-radius:20px;padding:3rem 2rem;text-align:center}
+  .fs-success{display:none;background:#d4edda;color:#155724;border-radius:var(--r-sm);padding:1rem;text-align:center;font-size:.92rem;margin-top:1rem}
+  .fs-success.show{display:block}
+
+  /* FOOTER */
+  footer{background:#0e1f35;padding:4rem 0 0}
+  .fg-grid{display:grid;grid-template-columns:1fr;gap:2.5rem}
+  @media(min-width:640px){.fg-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.fg-grid{grid-template-columns:2fr 1fr 1fr}}
+  .fl-a{color:#6b7f96;font-size:.9rem;transition:color .2s;display:block;padding:.25rem 0}
+  .fl-a:hover{color:var(--gold-lt)}
+  .fsoc{width:36px;height:36px;border-radius:50%;background:rgba(200,168,75,.15);display:inline-flex;align-items:center;justify-content:center;transition:background .2s}
+  .fsoc:hover{background:rgba(200,168,75,.3)}
+  .fbot{border-top:1px solid rgba(255,255,255,.07);text-align:center;padding:1.5rem;font-size:.8rem;color:#4a5e72;margin-top:3rem}
+
+  /* UTILS */
+  .tc{text-align:center}
+  .stat-big{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;line-height:1;color:var(--gold)}
+  .sp>*+*{margin-top:1.25rem}
+  .flex{display:flex}.fw{flex-wrap:wrap}.aic{align-items:center}.ais{align-items:flex-start}
+  .gap-s{gap:.5rem}.gap-m{gap:1rem}.gap-l{gap:1.5rem}
+  .mt1{margin-top:.4rem}.mt2{margin-top:.75rem}.mt3{margin-top:1.25rem}.mt4{margin-top:2rem}.mt5{margin-top:3rem}
+  .mb2{margin-bottom:.75rem}.mb3{margin-bottom:1.25rem}.mb4{margin-bottom:2rem}
+
+  /* ── LANGUAGE PILL GUARANTEE ──
+     Extra specificity ensures the pill is always visible
+     regardless of parent container or breakpoint
+  ── */
+  .lang-pill{display:inline-flex !important}
+  .lang-opt{min-width:36px;text-align:center}
+
+  /* ── RESPONSIVE TWEAKS ── */
+  @media(max-width:480px){
+    .hero-stats{gap:1.2rem}
+    .hero-btns{flex-direction:column;align-items:flex-start}
+    .hero-btns .btn{width:100%;justify-content:center}
+    .g4{grid-template-columns:1fr}
+    .about-stats-mini{grid-template-columns:repeat(2,1fr) !important}
+    .cta-b .flex{flex-direction:column;align-items:center}
+    .cta-b .btn{width:100%;max-width:260px;justify-content:center}
+  }
+  @media(max-width:640px){
+    .g4{grid-template-columns:1fr 1fr}
+  }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="wrap">
+    <div class="nav-in">
+      <a href="#hero" class="nav-logo">
+        <div class="nav-logo-ic">
+          <svg width="17" height="21" viewBox="0 0 18 22" fill="none"><rect x="7" y="0" width="4" height="22" rx="2" fill="#1a3556"/><rect x="0" y="6" width="18" height="4" rx="2" fill="#1a3556"/></svg>
+        </div>
+        <span class="nav-logo-txt">International<br>Jesus Light</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero"       data-i18n="nav-home">Home</a></li>
+        <li><a href="#about"      data-i18n="nav-about">About</a></li>
+        <li><a href="#churches"   data-i18n="nav-churches">Churches</a></li>
+        <li><a href="#orphanages" data-i18n="nav-orphanages">Orphanages</a></li>
+        <li>
+          <div class="lang-pill" role="group" aria-label="Language">
+            <button class="lang-opt active" data-lang="en">EN</button>
+            <button class="lang-opt"        data-lang="sw">SW</button>
+          </div>
+        </li>
+        <li><a href="#contact" class="btn btn-gold" style="padding:.55rem 1.4rem;font-size:.83rem;" data-i18n="nav-contact">Contact Us</a></li>
+      </ul>
+
+      <div class="flex aic gap-m mob-controls" style="gap:.75rem;">
+        <div class="lang-pill" role="group" aria-label="Language mobile">
+          <button class="lang-opt active" data-lang="en">EN</button>
+          <button class="lang-opt"        data-lang="sw">SW</button>
+        </div>
+        <button class="ham" id="ham" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mob-nav">
+    <a href="#hero"       data-mob data-i18n="nav-home">Home</a>
+    <a href="#about"      data-mob data-i18n="nav-about">About</a>
+    <a href="#churches"   data-mob data-i18n="nav-churches">Our Churches</a>
+    <a href="#orphanages" data-mob data-i18n="nav-orphanages">Orphanages</a>
+    <a href="#contact" class="btn btn-gold" data-mob data-i18n="nav-contact">Contact Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div id="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-ct">
+      <p class="label fu d1" data-i18n="h-lbl">Welcome · Arusha, Tanzania</p>
+      <h1 class="hero-h fu d2" data-i18n="h-title">International<br>Jesus Light</h1>
+      <p class="hero-sub fu d3" data-i18n="h-sub">Building faith, nurturing hope, and embracing love — serving Arusha through four thriving churches and two homes for children who need family.</p>
+      <div class="hero-btns fu d4">
+        <a href="#about"      class="btn btn-gold"  data-i18n="h-btn1">Discover Our Story</a>
+        <a href="#orphanages" class="btn btn-ghost"  data-i18n="h-btn2">Support Our Children</a>
+      </div>
+      <div class="hero-stats fu d5">
+        <div><div class="hs-num">4</div><div class="hs-lbl" data-i18n="s-ch">Churches</div></div>
+        <div><div class="hs-num">2</div><div class="hs-lbl" data-i18n="s-or">Orphanages</div></div>
+        <div><div class="hs-num">52+</div><div class="hs-lbl" data-i18n="s-ki">Children in Care</div></div>
+        <div><div class="hs-num">20+</div><div class="hs-lbl" data-i18n="s-yr">Years Serving</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-bob">
+    <svg width="24" height="24" fill="none" stroke="rgba(245,240,232,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- SCRIPTURE BANNER -->
+<div class="scripture-strip">
+  <p class="scripture-txt" data-i18n="sc-txt">"For I was hungry and you gave me food, I was a stranger and you welcomed me, I was naked and you clothed me."</p>
+  <p class="label mt1" data-i18n="sc-ref">— Matthew 25:35</p>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec" style="background:var(--cream);">
+  <div class="wrap">
+    <div class="g2" style="gap:3.5rem;align-items:center;">
+      <div>
+        <p class="label mb2" data-i18n="ab-lbl">Our Story</p>
+        <h2 class="serif mb3" style="font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.12;" data-i18n="ab-title">A Ministry Born<br>from Faith &amp; Love</h2>
+        <div class="gold-bar mb4"></div>
+        <p style="line-height:1.85;margin-bottom:1.1rem;" data-i18n="ab-p1">International Jesus Light was founded on a simple yet powerful conviction: that every soul deserves to encounter God's unconditional love. Under the faithful leadership of the founding pastors, what began as a single congregation in Arusha has grown into a vibrant ministry spanning four churches and two children's homes.</p>
+        <p style="line-height:1.85;margin-bottom:2rem;" data-i18n="ab-p2">Our calling extends far beyond Sunday worship. Moved by the needs of the most vulnerable — children without parents, families without support — we established our orphanage ministry to offer shelter, education, spiritual formation, and above all, a sense of belonging. Every child in our care is treated as a gift from God and raised as a member of our extended family.</p>
+        <div class="about-stats-mini" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-top:1.5rem;border-top:1px solid var(--cream-dk);">
+          <div class="tc"><div class="stat-big">4</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-lt);margin-top:4px;" data-i18n="s-ch">Churches</div></div>
+          <div class="tc"><div class="stat-big">2</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-lt);margin-top:4px;" data-i18n="s-or">Orphanages</div></div>
+          <div class="tc"><div class="stat-big">52+</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-lt);margin-top:4px;" data-i18n="s-ki">Children</div></div>
+          <div class="tc"><div class="stat-big">20+</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-lt);margin-top:4px;" data-i18n="s-yr">Years</div></div>
+        </div>
+      </div>
+      <div class="ag">
+        <div class="gm iw img-fb" style="border-radius:var(--r-md);"><img class="ic" src="https://images.unsplash.com/photo-1579762593175-20226054cad0?w=800&q=80" alt="Congregation worshipping" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="iw img-fb" style="border-radius:var(--r-md);"><img class="ic" src="https://images.unsplash.com/photo-1542435503-ec7b0f5a1b4f?w=500&q=80" alt="Bible study" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="iw img-fb" style="border-radius:var(--r-md);"><img class="ic" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&q=80" alt="Children at orphanage" loading="lazy" onerror="this.style.display='none'"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="sec" style="background:var(--navy);">
+  <div class="wrap">
+    <div class="tc mb4">
+      <p class="label mb2" data-i18n="ld-lbl">Our Leadership</p>
+      <h2 class="serif mb3" style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:#f5f0e8;" data-i18n="ld-title">A Family United in Service</h2>
+      <div class="gold-bar" style="margin:0 auto;"></div>
+    </div>
+    <div class="g3" style="margin-top:3rem;">
+      <div class="card" style="background:var(--cream);">
+        <div class="ldr-iw iw img-fb"><img class="ic" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Senior Pastor" loading="lazy" onerror="this.style.display='none'"><div class="ldr-ov"></div><div class="ldr-cap"><div class="serif" style="font-size:1.05rem;font-weight:700;color:#f5f0e8;" data-i18n="ld1n">Senior Pastor &amp; Founder</div><div style="font-size:.75rem;color:var(--gold-lt);" data-i18n="ld1r">Lead Pastor</div></div></div>
+        <div style="padding:1.5rem;"><p style="font-size:.9rem;line-height:1.8;" data-i18n="ld1b">With a deep love for community and an unshakeable faith, our founding pastor has guided the congregation for over two decades. His vision for a church rooted in service — not just Sunday worship — is the cornerstone of everything International Jesus Light stands for.</p></div>
+      </div>
+      <div class="card" style="background:var(--cream);">
+        <div class="ldr-iw iw img-fb"><img class="ic" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=80" alt="Co-Pastor" loading="lazy" onerror="this.style.display='none'"><div class="ldr-ov"></div><div class="ldr-cap"><div class="serif" style="font-size:1.05rem;font-weight:700;color:#f5f0e8;" data-i18n="ld2n">Co-Pastor &amp; Orphanage Director</div><div style="font-size:.75rem;color:var(--gold-lt);" data-i18n="ld2r">Co-Pastor</div></div></div>
+        <div style="padding:1.5rem;"><p style="font-size:.9rem;line-height:1.8;" data-i18n="ld2b">Her extraordinary compassion for vulnerable children gave birth to Hope Haven Orphanage. She personally oversees the wellbeing of every child in care, ensuring they receive not only practical support but the warmth and dignity they deserve.</p></div>
+      </div>
+      <div class="card" style="background:var(--cream);">
+        <div class="ldr-iw iw img-fb"><img class="ic" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80" alt="Orphanage Manager" loading="lazy" onerror="this.style.display='none'"><div class="ldr-ov"></div><div class="ldr-cap"><div class="serif" style="font-size:1.05rem;font-weight:700;color:#f5f0e8;" data-i18n="ld3n">Grace Home Orphanage Manager</div><div style="font-size:.75rem;color:var(--gold-lt);" data-i18n="ld3r">Orphanage Manager</div></div></div>
+        <div style="padding:1.5rem;"><p style="font-size:.9rem;line-height:1.8;" data-i18n="ld3b">Raised in the heart of this ministry, he carries forward the founders' legacy with fresh energy and deep devotion. As manager of Grace Home, he brings youthful vision and personal commitment to every child's growth.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHURCHES -->
+<section id="churches" class="sec" style="background:var(--cream);">
+  <div class="wrap">
+    <div class="tc mb4">
+      <p class="label mb2" data-i18n="ch-lbl">Our Locations</p>
+      <h2 class="serif mb2" style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--navy);" data-i18n="ch-title">Four Churches, One Mission</h2>
+      <p style="max-width:560px;margin:0 auto 1.5rem;color:var(--txt-lt);" data-i18n="ch-sub">Each branch serves its own neighbourhood, united by the same vision — to love God, love people, and transform lives.</p>
+      <div class="gold-bar" style="margin:0 auto;"></div>
+    </div>
+    <div class="g2" style="margin-top:3rem;">
+      <div class="card">
+        <div class="cthumb iw img-fb"><img class="ic" src="https://images.unsplash.com/photo-1519326844852-704caea5679e?w=800&q=80" alt="IJ Light Main" loading="lazy" onerror="this.style.display='none'"><span class="badge bg" data-i18n="c1bg">Founding Church</span></div>
+        <div style="padding:1.5rem;">
+          <h3 class="serif" style="font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="c1nm">International Jesus Light — Main</h3>
+          <p style="font-size:.88rem;line-height:1.7;color:var(--txt);margin-bottom:1rem;" data-i18n="c1dc">Where it all began. Our founding location in Downtown Arusha, home to Grace Home Orphanage.</p>
+          <div class="cmeta"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span data-i18n="c1lc">Downtown Arusha</span></div>
+          <div class="cmeta"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg><span data-i18n="c1tm">Sun 9:00 &amp; 11:00 AM · Fri 3:00 PM</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cthumb iw img-fb"><img class="ic" src="https://images.unsplash.com/photo-1545987796-200677ee1011?w=800&q=80" alt="IJ Light Eastside" loading="lazy" onerror="this.style.display='none'"></div>
+        <div style="padding:1.5rem;">
+          <h3 class="serif" style="font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="c2nm">International Jesus Light — Eastside</h3>
+          <p style="font-size:.88rem;line-height:1.7;color:var(--txt);margin-bottom:1rem;" data-i18n="c2dc">Known for its lively worship and strong small-group fellowship, a vibrant home for the eastern districts of Arusha.</p>
+          <div class="cmeta"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span data-i18n="c2lc">Eastside Arusha</span></div>
+          <div class="cmeta"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg><span data-i18n="c2tm">Sun 10:00 AM · Fri 3:00 PM</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cthumb iw img-fb"><img class="ic" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" alt="IJ Light Northview" loading="lazy" onerror="this.style.display='none'"></div>
+        <div style="padding:1.5rem;">
+          <h3 class="serif" style="font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="c3nm">International Jesus Light — Northview</h3>
+          <p style="font-size:.88rem;line-height:1.7;color:var(--txt);margin-bottom:1rem;" data-i18n="c3dc">One of our fastest-growing congregations, celebrated for its dynamic Youth Ministry and passionate community outreach.</p>
+          <div class="cmeta"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span data-i18n="c3lc">Northview Arusha</span></div>
+          <div class="cmeta"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg><span data-i18n="c3tm">Sun 9:30 &amp; 11:30 AM</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cthumb iw img-fb"><img class="ic" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="IJ Light Riverside" loading="lazy" onerror="this.style.display='none'"><span class="badge bn" data-i18n="c4bg">Hope Haven Location</span></div>
+        <div style="padding:1.5rem;">
+          <h3 class="serif" style="font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="c4nm">International Jesus Light — Riverside</h3>
+          <p style="font-size:.88rem;line-height:1.7;color:var(--txt);margin-bottom:1rem;" data-i18n="c4dc">Home to Hope Haven Orphanage. Family is at the heart of everything here — in the pews and the children's home next door.</p>
+          <div class="cmeta"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span data-i18n="c4lc">Riverside Arusha</span></div>
+          <div class="cmeta"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg><span data-i18n="c4tm">Sun 10:30 AM</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORPHANAGES -->
+<section id="orphanages" class="sec" style="background:linear-gradient(180deg,var(--navy) 0%,var(--navy-lt) 100%);">
+  <div class="wrap">
+    <div class="tc mb4">
+      <p class="label mb2" data-i18n="or-lbl">Orphanage Ministry</p>
+      <h2 class="serif mb2" style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:#f5f0e8;" data-i18n="or-title">Giving Children a Home</h2>
+      <p style="max-width:560px;margin:0 auto 1.5rem;color:#b8c4d4;" data-i18n="or-sub">Every child deserves to be loved and given every chance to flourish. Our orphanages provide far more than shelter — they provide a family, a community, and a future.</p>
+      <div class="gold-bar" style="margin:0 auto;"></div>
+    </div>
+    <div class="g2" style="margin-top:3rem;">
+      <!-- Grace Home -->
+      <div class="card" style="background:var(--cream);">
+        <div class="o-iw"><img class="ic" style="height:260px;" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80" alt="Grace Home Orphanage" loading="lazy" onerror="this.style.display='none'"><div class="o-ov"></div><div class="o-badge"><span class="badge bg" data-i18n="gh-bg">Downtown Arusha</span></div></div>
+        <div style="padding:2rem;">
+          <div class="flex aic gap-m mb3">
+            <div style="width:44px;height:44px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" fill="var(--gold)" viewBox="0 0 24 24"><path d="M12 3L4 9v12h16V9l-8-6z"/></svg></div>
+            <div><h3 class="serif" style="font-size:1.4rem;font-weight:700;color:var(--navy);" data-i18n="gh-nm">Grace Home Orphanage</h3><p style="font-size:.78rem;color:var(--gold);" data-i18n="gh-dr">Managed by Daniel Mitchell</p></div>
+          </div>
+          <p style="font-size:.9rem;line-height:1.8;margin-bottom:1.5rem;" data-i18n="gh-dc">Established alongside our founding church, Grace Home has been a refuge since the earliest days of this ministry. Every child is known, cherished, and given every opportunity to grow.</p>
+          <div class="g2" style="gap:.75rem;margin-bottom:1.5rem;">
+            <div style="background:var(--navy);border-radius:10px;padding:1rem;text-align:center;"><div class="stat-big" style="font-size:2.2rem;">28</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;color:#f5f0e8;text-transform:uppercase;" data-i18n="o-ch">Children</div></div>
+            <div style="background:var(--navy);border-radius:10px;padding:1rem;text-align:center;"><div class="stat-big" style="font-size:2.2rem;">12</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;color:#f5f0e8;text-transform:uppercase;" data-i18n="o-st">Staff Members</div></div>
+          </div>
+          <ul class="sp" style="font-size:.88rem;">
+            <li class="flex aic gap-s"><svg width="14" height="14" fill="var(--gold)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="gh-f1">Full academic support &amp; private tutoring</span></li>
+            <li class="flex aic gap-s"><svg width="14" height="14" fill="var(--gold)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="gh-f2">Comprehensive healthcare &amp; nutrition</span></li>
+            <li class="flex aic gap-s"><svg width="14" height="14" fill="var(--gold)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="gh-f3">Spiritual mentorship &amp; character formation</span></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Hope Haven -->
+      <div class="card" style="background:var(--cream);">
+        <div class="o-iw"><img class="ic" style="height:260px;" src="https://images.unsplash.com/photo-1524069290683-0457abfe42c3?w=800&q=80" alt="Hope Haven Orphanage" loading="lazy" onerror="this.style.display='none'"><div class="o-ov"></div><div class="o-badge"><span class="badge bn" data-i18n="hh-bg">Riverside Arusha</span></div></div>
+        <div style="padding:2rem;">
+          <div class="flex aic gap-m mb3">
+            <div style="width:44px;height:44px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" fill="var(--gold)" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+            <div><h3 class="serif" style="font-size:1.4rem;font-weight:700;color:var(--navy);" data-i18n="hh-nm">Hope Haven Orphanage</h3><p style="font-size:.78rem;color:var(--gold);" data-i18n="hh-dr">Directed by Pastor Sarah Mitchell</p></div>
+          </div>
+          <p style="font-size:.9rem;line-height:1.8;margin-bottom:1.5rem;" data-i18n="hh-dc">Specialising in the care of younger children and infants, Hope Haven is a place of healing, play, and unconditional love — where trauma is gently met with safety and joy.</p>
+          <div class="g2" style="gap:.75rem;margin-bottom:1.5rem;">
+            <div style="background:var(--navy);border-radius:10px;padding:1rem;text-align:center;"><div class="stat-big" style="font-size:2.2rem;">24</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;color:#f5f0e8;text-transform:uppercase;" data-i18n="o-ch">Children</div></div>
+            <div style="background:var(--navy);border-radius:10px;padding:1rem;text-align:center;"><div class="stat-big" style="font-size:2.2rem;">10</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;color:#f5f0e8;text-transform:uppercase;" data-i18n="o-st">Staff Members</div></div>
+          </div>
+          <ul class="sp" style="font-size:.88rem;">
+            <li class="flex aic gap-s"><svg width="14" height="14" fill="var(--gold)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="hh-f1">Early childhood development programmes</span></li>
+            <li class="flex aic gap-s"><svg width="14" height="14" fill="var(--gold)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="hh-f2">Trauma-informed care &amp; counselling</span></li>
+            <li class="flex aic gap-s"><svg width="14" height="14" fill="var(--gold)" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="hh-f3">Arts, music, play &amp; recreation</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activities -->
+    <div style="margin-top:5rem;">
+      <div class="tc mb3">
+        <p class="label mb1" data-i18n="ac-lbl">Daily Life</p>
+        <h3 class="serif" style="font-size:1.8rem;font-weight:700;color:#f5f0e8;" data-i18n="ac-title">What Our Children Experience Every Day</h3>
+        <p style="color:#b8c4d4;font-size:.9rem;margin-top:.5rem;" data-i18n="ac-sub">Holistic development — academic, spiritual, creative, and joyful.</p>
+      </div>
+      <div class="tab-row" style="margin:1.5rem 0;">
+        <button class="tab-btn active" data-tab="t-academics">📚 <span data-i18n="tb-ac">Academics</span></button>
+        <button class="tab-btn" data-tab="t-spiritual">🙏 <span data-i18n="tb-sp">Spiritual Life</span></button>
+        <button class="tab-btn" data-tab="t-recreation">⚽ <span data-i18n="tb-re">Recreation &amp; Arts</span></button>
+      </div>
+      <div id="t-academics" class="tab-ct active" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;">
+        <div class="ac"><div style="font-size:1.8rem;margin-bottom:.5rem;">📐</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="a1t">Core Academics</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="a1d">Maths, English, Science, and Social Studies aligned to national standards so every child progresses with confidence.</p></div>
+        <div class="ac nb"><div style="font-size:1.8rem;margin-bottom:.5rem;">🔬</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="a2t">STEM Programmes</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="a2d">Hands-on science, introductory coding, and technology skills for a rapidly changing world.</p></div>
+        <div class="ac"><div style="font-size:1.8rem;margin-bottom:.5rem;">📖</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="a3t">Reading &amp; Library</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="a3d">Age-appropriate books and an active book club nurturing a lifelong love of learning.</p></div>
+        <div class="ac nb"><div style="font-size:1.8rem;margin-bottom:.5rem;">✍️</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="a4t">Creative Writing</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="a4d">Storytelling, poetry, and journaling help children find their voice and process their experiences.</p></div>
+        <div class="ac"><div style="font-size:1.8rem;margin-bottom:.5rem;">🌍</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="a5t">Languages</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="a5d">English and Swahili instruction ensuring every child is confident and connected.</p></div>
+        <div class="ac nb"><div style="font-size:1.8rem;margin-bottom:.5rem;">🎓</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="a6t">Mentorship &amp; Tutoring</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="a6d">One-on-one tutoring ensures no child is left behind academically.</p></div>
+      </div>
+      <div id="t-spiritual" class="tab-ct" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;">
+        <div class="ac"><div style="font-size:1.8rem;margin-bottom:.5rem;">🎵</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="s1t">Choir &amp; Worship</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="s1d">Our children's choir builds confidence, musical talent, and a deep love of praise.</p></div>
+        <div class="ac nb"><div style="font-size:1.8rem;margin-bottom:.5rem;">📖</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="s2t">Bible Study</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="s2d">Age-appropriate scripture lessons that lay a lasting spiritual foundation.</p></div>
+        <div class="ac"><div style="font-size:1.8rem;margin-bottom:.5rem;">🤝</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="s3t">Community Service</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="s3d">Children visit the elderly, distribute food, and serve neighbours in need.</p></div>
+        <div class="ac nb"><div style="font-size:1.8rem;margin-bottom:.5rem;">✨</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="s4t">Celebrations</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="s4d">Christmas, Easter, and spiritual holidays fill our homes with hope and laughter.</p></div>
+      </div>
+      <div id="t-recreation" class="tab-ct" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;">
+        <div class="ac"><div style="font-size:1.8rem;margin-bottom:.5rem;">⚽</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="r1t">Sports &amp; Athletics</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="r1d">Football, netball, volleyball, and athletics building teamwork, discipline, and physical health.</p></div>
+        <div class="ac nb"><div style="font-size:1.8rem;margin-bottom:.5rem;">🎨</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="r2t">Visual Arts</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="r2d">Painting, drawing, and crafts encouraging self-expression and celebrating creativity.</p></div>
+        <div class="ac"><div style="font-size:1.8rem;margin-bottom:.5rem;">🎭</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="r3t">Drama &amp; Theatre</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="r3d">Stage productions and workshops building confidence and communication skills.</p></div>
+        <div class="ac nb"><div style="font-size:1.8rem;margin-bottom:.5rem;">🎸</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="r4t">Music Lessons</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="r4d">Instrument training and music theory for children who show musical aptitude.</p></div>
+        <div class="ac"><div style="font-size:1.8rem;margin-bottom:.5rem;">🌳</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="r5t">Outdoor &amp; Nature</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="r5d">Gardening and nature walks connecting children with Tanzania's natural beauty.</p></div>
+        <div class="ac nb"><div style="font-size:1.8rem;margin-bottom:.5rem;">🧩</div><h4 class="serif" style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;" data-i18n="r6t">Games &amp; Puzzles</h4><p style="font-size:.85rem;color:var(--txt);" data-i18n="r6d">Board games and puzzles sharpening critical thinking and bringing joy to everyday life.</p></div>
+      </div>
+      <div class="g3" style="margin-top:3.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);text-align:center;">
+        <div><div class="stat-big" style="font-size:3rem;">8</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;color:#b8c4d4;text-transform:uppercase;margin-top:6px;" data-i18n="as1">Hours of Daily Learning</div></div>
+        <div><div class="stat-big" style="font-size:3rem;">15+</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;color:#b8c4d4;text-transform:uppercase;margin-top:6px;" data-i18n="as2">Weekly Activities</div></div>
+        <div><div class="stat-big" style="font-size:3rem;">100%</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;color:#b8c4d4;text-transform:uppercase;margin-top:6px;" data-i18n="as3">Holistic Development</div></div>
+      </div>
+    </div>
+
+    <!-- Donate CTA -->
+    <div class="cta-b" style="margin-top:4rem;">
+      <h3 class="serif" style="font-size:1.8rem;font-weight:700;color:#f5f0e8;margin-bottom:.75rem;" data-i18n="ct-title">Help Us Make a Difference</h3>
+      <p style="color:#b8c4d4;line-height:1.7;max-width:560px;margin:0 auto 2rem;" data-i18n="ct-sub">Your generosity provides food, shelter, education, and a loving home. Every contribution — however large or small — changes a child's life.</p>
+      <div class="flex fw gap-s" style="justify-content:center;">
+        <a href="#contact" class="btn btn-gold"  data-i18n="ct-b1">Donate Now</a>
+        <a href="#contact" class="btn btn-og"    data-i18n="ct-b2">Become a Sponsor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" style="background:var(--cream);">
+  <div class="wrap">
+    <div class="tc mb4">
+      <p class="label mb2" data-i18n="sv-lbl">What We Offer</p>
+      <h2 class="serif mb3" style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--navy);" data-i18n="sv-title">Services &amp; Programmes</h2>
+      <div class="gold-bar" style="margin:0 auto;"></div>
+    </div>
+    <div class="g4" style="margin-top:3rem;">
+      <div class="svc-card"><div class="svc-icon"><svg width="26" height="26" fill="var(--gold)" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div><h3 class="serif" style="font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;" data-i18n="sv1t">Sunday Worship</h3><p style="font-size:.85rem;color:var(--txt);" data-i18n="sv1d">Come as you are. Uplifting praise, grounding scripture, and the warmth of community every Sunday.</p></div>
+      <div class="svc-card"><div class="svc-icon"><svg width="26" height="26" fill="var(--gold)" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><h3 class="serif" style="font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;" data-i18n="sv2t">Youth Ministry</h3><p style="font-size:.85rem;color:var(--txt);" data-i18n="sv2d">Dynamic programmes discipling teenagers and young adults in faith, purpose, and friendship.</p></div>
+      <div class="svc-card"><div class="svc-icon"><svg width="26" height="26" fill="var(--gold)" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg></div><h3 class="serif" style="font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;" data-i18n="sv3t">Bible Study</h3><p style="font-size:.85rem;color:var(--txt);" data-i18n="sv3d">Midweek small groups where believers dig deeper into God's Word and grow together.</p></div>
+      <div class="svc-card"><div class="svc-icon"><svg width="26" height="26" fill="var(--gold)" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><h3 class="serif" style="font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;" data-i18n="sv4t">Community Care</h3><p style="font-size:.85rem;color:var(--txt);" data-i18n="sv4d">Outreach to the elderly, homeless, and struggling families — faith without action is incomplete.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec" style="background:var(--navy);">
+  <div class="wrap">
+    <div class="g2" style="gap:3.5rem;align-items:start;">
+      <div>
+        <p class="label mb2" data-i18n="cn-lbl">Get in Touch</p>
+        <h2 class="serif" style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:#f5f0e8;line-height:1.15;margin-bottom:1rem;" data-i18n="cn-title">We'd Love to<br>Hear From You</h2>
+        <p style="color:#b8c4d4;line-height:1.8;margin-bottom:2rem;" data-i18n="cn-sub">Whether you have questions, wish to visit, want to support the orphanage, or simply need prayer — we are here, and we care.</p>
+        <div class="sp">
+          <div class="ci"><div class="ci-ic"><svg width="18" height="18" fill="var(--gold)" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div><p style="font-size:.72rem;font-weight:700;letter-spacing:.06em;color:#f5f0e8;text-transform:uppercase;" data-i18n="cn-e-l">Email Us</p><a href="mailto:info@ijlchurch.org" style="color:var(--gold);">info@ijlchurch.org</a></div></div>
+          <div class="ci"><div class="ci-ic"><svg width="18" height="18" fill="var(--gold)" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><div><p style="font-size:.72rem;font-weight:700;letter-spacing:.06em;color:#f5f0e8;text-transform:uppercase;" data-i18n="cn-p-l">Call Us</p><p style="color:var(--gold);">+255 764 123 456</p></div></div>
+          <div class="ci"><div class="ci-ic"><svg width="18" height="18" fill="var(--gold)" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div><p style="font-size:.72rem;font-weight:700;letter-spacing:.06em;color:#f5f0e8;text-transform:uppercase;" data-i18n="cn-a-l">Main Office</p><p style="color:#b8c4d4;" data-i18n="cn-addr">International Jesus Light — Main<br>Downtown Arusha, Tanzania</p></div></div>
+        </div>
+        <div class="tbox">
+          <p style="font-size:.72rem;font-weight:900;letter-spacing:.15em;color:#f5f0e8;text-transform:uppercase;margin-bottom:.75rem;" data-i18n="tm-lbl">Service Times</p>
+          <div class="tr"><span data-i18n="t1l">Sunday Worship</span><span data-i18n="t1v">9:00 AM – 12:00 PM</span></div>
+          <div class="tr"><span data-i18n="t2l">Wednesday Bible Study</span><span data-i18n="t2v">7:00 PM</span></div>
+          <div class="tr"><span data-i18n="t3l">Friday Service</span><span data-i18n="t3v">3:00 PM</span></div>
+          <div class="tr"><span data-i18n="t4l">Saturday Prayer</span><span data-i18n="t4v">8:00 AM</span></div>
+        </div>
+      </div>
+      <div style="background:var(--cream);border-radius:var(--r-lg);padding:2.5rem;">
+        <h3 class="serif" style="font-size:1.6rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem;" data-i18n="fm-title">Send Us a Message</h3>
+        <form id="contact-form" novalidate>
+          <div class="fg"><label class="fl" for="fn" data-i18n="fm-nm">Your Name</label><input class="ff" type="text" id="fn" name="name" required placeholder="e.g. Amina Osei"></div>
+          <div class="fg"><label class="fl" for="fe" data-i18n="fm-em">Email Address</label><input class="ff" type="email" id="fe" name="email" required placeholder="you@example.com"></div>
+          <div class="fg"><label class="fl" for="fs" data-i18n="fm-sb">Subject</label>
+            <select class="ff" id="fs" name="subject">
+              <option data-i18n="fm-o1">General Inquiry</option>
+              <option data-i18n="fm-o2">Plan a Visit</option>
+              <option data-i18n="fm-o3">Donation or Sponsorship</option>
+              <option data-i18n="fm-o4">Volunteer Opportunities</option>
+              <option data-i18n="fm-o5">Prayer Request</option>
+            </select>
+          </div>
+          <div class="fg"><label class="fl" for="fm" data-i18n="fm-ms">Your Message</label><textarea class="ff" id="fm" name="message" rows="4" required placeholder="How can we help you?" style="resize:vertical;"></textarea></div>
+          <button type="submit" class="btn btn-gold w-full" style="justify-content:center;" data-i18n="fm-btn">Send Message</button>
+        </form>
+        <div class="fs-success" id="form-ok"><span data-i18n="fm-ok">✓ Thank you! We'll be in touch soon.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fg-grid">
+      <div>
+        <div class="flex aic gap-m" style="margin-bottom:1rem;">
+          <div class="nav-logo-ic"><svg width="16" height="20" viewBox="0 0 18 22" fill="none"><rect x="7" y="0" width="4" height="22" rx="2" fill="#1a3556"/><rect x="0" y="6" width="18" height="4" rx="2" fill="#1a3556"/></svg></div>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:#f5f0e8;">International Jesus Light</span>
+        </div>
+        <p style="color:#6b7f96;font-size:.88rem;line-height:1.7;max-width:300px;margin-bottom:1.25rem;" data-i18n="ft-desc">Building faith, nurturing hope, and embracing love — serving Arusha through four churches and two children's homes.</p>
+        <div class="flex gap-s">
+          <a href="#" class="fsoc" aria-label="Facebook"><svg width="15" height="15" fill="var(--gold)" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" class="fsoc" aria-label="Instagram"><svg width="15" height="15" fill="var(--gold)" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" class="fsoc" aria-label="YouTube"><svg width="15" height="15" fill="var(--gold)" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:.72rem;font-weight:900;letter-spacing:.15em;color:#f5f0e8;text-transform:uppercase;margin-bottom:1rem;" data-i18n="ft-ql">Quick Links</p>
+        <a href="#about"      class="fl-a" data-i18n="nav-about">About Us</a>
+        <a href="#churches"   class="fl-a" data-i18n="nav-churches">Our Churches</a>
+        <a href="#orphanages" class="fl-a" data-i18n="nav-orphanages">Orphanages</a>
+        <a href="#contact"    class="fl-a" data-i18n="nav-contact">Contact Us</a>
+      </div>
+      <div>
+        <p style="font-size:.72rem;font-weight:900;letter-spacing:.15em;color:#f5f0e8;text-transform:uppercase;margin-bottom:1rem;" data-i18n="ft-st">Service Times</p>
+        <div class="tr" style="padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.06);"><span style="color:#6b7f96;font-size:.85rem;" data-i18n="t1l">Sunday Worship</span><span style="color:var(--gold);font-size:.82rem;font-weight:700;" data-i18n="t1v">9:00 AM – 12:00 PM</span></div>
+        <div class="tr" style="padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.06);"><span style="color:#6b7f96;font-size:.85rem;" data-i18n="t2l">Wednesday Bible Study</span><span style="color:var(--gold);font-size:.82rem;font-weight:700;" data-i18n="t2v">7:00 PM</span></div>
+        <div class="tr" style="padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.06);"><span style="color:#6b7f96;font-size:.85rem;" data-i18n="t3l">Friday Service</span><span style="color:var(--gold);font-size:.82rem;font-weight:700;" data-i18n="t3v">3:00 PM</span></div>
+        <div class="tr" style="padding:.35rem 0;"><span style="color:#6b7f96;font-size:.85rem;" data-i18n="t4l">Saturday Prayer</span><span style="color:var(--gold);font-size:.82rem;font-weight:700;" data-i18n="t4v">8:00 AM</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fbot" data-i18n="ft-copy">© 2025 International Jesus Light &amp; Orphanage Ministry, Arusha, Tanzania. All rights reserved.</div>
+</footer>
+
+<script>
+/* ── NAVBAR SCROLL ── */
+const nb=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',scrollY>50),{passive:true});
+
+/* ── HERO BG — JS-loaded with fallback ── */
+(()=>{
+  const bg=document.getElementById('hero-bg');
+  const im=new Image();
+  im.onload=()=>{bg.style.cssText='position:absolute;inset:0;background-image:url("'+im.src+'");background-size:cover;background-position:center;'};
+  im.onerror=()=>{bg.style.background='linear-gradient(135deg,#112340 0%,#2b4a72 100%)'};
+  im.src='https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=1600&q=80';
+})();
+
+/* ── HAMBURGER ── */
+const ham=document.getElementById('ham'),mn=document.getElementById('mob-nav');
+ham.addEventListener('click',()=>{const o=mn.classList.toggle('open');ham.classList.toggle('open',o);ham.setAttribute('aria-expanded',o)});
+document.querySelectorAll('[data-mob]').forEach(l=>l.addEventListener('click',()=>{mn.classList.remove('open');ham.classList.remove('open');ham.setAttribute('aria-expanded','false')}));
+
+/* ── SMOOTH SCROLL (accounts for navbar height) ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-nb.offsetHeight-8,behavior:'smooth'})}
+  });
+});
+
+/* ── ACTIVITY TABS ── */
+document.querySelectorAll('.tab-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tab-ct').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.tab).classList.add('active');
+  });
+});
+
+/* ── CONTACT FORM ── */
+document.getElementById('contact-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const ok=document.getElementById('form-ok');
+  ok.classList.add('show');e.target.reset();
+  setTimeout(()=>ok.classList.remove('show'),6000);
+});
+
+/* ── LANGUAGE SYSTEM ──
+   Uses data-i18n keys. Caches EN on load.
+   All lang-pill buttons (desktop + mobile) stay in sync.
+── */
+const SW={
+  'nav-home':'Nyumbani','nav-about':'Kuhusu','nav-churches':'Makanisa','nav-orphanages':'Makazi ya Yatima','nav-contact':'Wasiliana Nasi',
+  'h-lbl':'Karibu · Arusha, Tanzania',
+  'h-title':'International\nJesus Light',
+  'h-sub':'Kujenga imani, kulisha tumaini, kupendeza upendo — tunatumikia Arusha kupitia makanisa manne na makazi mawili kwa watoto wanaohitaji familia.',
+  'h-btn1':'Jua Hadithi Yetu','h-btn2':'Saidia Watoto Wetu',
+  's-ch':'Makanisa','s-or':'Makazi ya Yatima','s-ki':'Watoto','s-yr':'Miaka ya Huduma',
+  'sc-txt':'"Kwa maana nilikuwa na njaa mkani nipa chakula, nilikuwa mgeni mkanikubali, nilikuwa uchi mkanivisha."','sc-ref':'— Mathayo 25:35',
+  'ab-lbl':'Hadithi Yetu','ab-title':'Huduma Iliyozaliwa\nkwa Imani na Upendo',
+  'ab-p1':'International Jesus Light ilianzishwa kwa imani rahisi: kila roho inastahili kukutana na upendo wa Mungu. Chini ya uongozi wa wachungaji waanzilishi, tumeenea kutoka kanisa moja hadi makanisa manne na nyumba mbili za watoto.',
+  'ab-p2':'Wito wetu unaenda mbali zaidi ya ibada ya Jumapili. Tunawaangalia walio dhaifu — watoto yatima wanaohitaji familia. Tunawapa makazi, elimu, mwongozo wa kiroho, na hasa hasa, upendo.',
+  'ld-lbl':'Uongozi Wetu','ld-title':'Familia Iliyounganika katika Huduma',
+  'ld1n':'Mchungaji Mkuu na Mwanzilishi','ld1r':'Mchungaji Mkuu','ld1b':'Kwa upendo wa kina na imani imara, mchungaji wetu mwanzilishi ameongoza kanisa kwa miaka zaidi ya ishirini. Maono yake ya kanisa linalohudumu ndiyo msingi wa International Jesus Light.',
+  'ld2n':'Mchungaji Mwenza na Mkurugenzi wa Makazi','ld2r':'Mchungaji Mwenza','ld2b':'Huruma yake ya kipekee kwa watoto ilianzisha Hope Haven. Yeye mwenyewe anasimamia ustawi wa kila mtoto, akihakikisha wapate msaada na heshima wanayostahili.',
+  'ld3n':'Meneja wa Grace Home Orphanage','ld3r':'Meneja wa Makazi','ld3b':'Alikua moyoni mwa huduma hii, anabeba urithi wa waanzilishi kwa nguvu mpya na maono ya kipekee kwa maendeleo ya kila mtoto.',
+  'ch-lbl':'Maeneo Yetu','ch-title':'Makanisa Manne, Misheni Moja','ch-sub':'Kila tawi linahudumia jirani yake, yamefungwa na maono moja — kupenda Mungu, kupenda watu, na kubadilisha maisha.',
+  'c1bg':'Kanisa la Kwanza','c1nm':'International Jesus Light — Kuu','c1dc':'Mahali ilipoanzia yote. Kanisa letu la kwanza Arusha ya Kati, nyumba ya Grace Home Orphanage.','c1lc':'Arusha ya Kati','c1tm':'Jum 9:00 & 11:00 AM · Ij 3:00 PM',
+  'c2nm':'International Jesus Light — Mashariki','c2dc':'Inajulikana kwa ibada ya furaha na ushirika wa nguvu, makao ya makundi ya mashariki mwa Arusha.','c2lc':'Mashariki ya Arusha','c2tm':'Jum 10:00 AM · Ij 3:00 PM',
+  'c3nm':'International Jesus Light — Kaskazini','c3dc':'Moja ya makongregesheni yanayokua haraka, yanayojulikana kwa Huduma ya Vijana na programu za jamii.','c3lc':'Kaskazini ya Arusha','c3tm':'Jum 9:30 & 11:30 AM',
+  'c4bg':'Eneo la Hope Haven','c4nm':'International Jesus Light — Mto','c4dc':'Nyumba ya Hope Haven Orphanage. Familia ndiyo moyo wa kila kitu hapa — kanisani na nyumba ya watoto.','c4lc':'Kando ya Mto, Arusha','c4tm':'Jum 10:30 AM',
+  'or-lbl':'Huduma ya Makazi ya Yatima','or-title':'Kuwapa Watoto Nyumbani','or-sub':'Kila mtoto anastahili kupendwa na kupewa nafasi ya kustawi. Makazi yetu yanawapa familia, jamii, na mustakabali.',
+  'gh-bg':'Arusha ya Kati','gh-nm':'Grace Home Orphanage','gh-dr':'Inaosimamiwa na Daniel Mitchell','gh-dc':'Ilianzishwa karibu na kanisa letu la kwanza, Grace Home ni kimbilio tangu siku za mwanzo. Kila mtoto anapendwa na kupewa nafasi ya kukua.',
+  'hh-bg':'Kando ya Mto, Arusha','hh-nm':'Hope Haven Orphanage','hh-dr':'Inaoongozwa na Mchungaji Sarah Mitchell','hh-dc':'Inajihusisha na watoto wadogo na watoto wachanga, Hope Haven ni mahali pa uponyaji, mchezo, na upendo usio na masharti.',
+  'o-ch':'Watoto','o-st':'Wafanyakazi',
+  'gh-f1':'Msaada kamili wa masomo na mafunzo','gh-f2':'Huduma ya afya na lishe','gh-f3':'Mwongozo wa kiroho na uundaji wa tabia',
+  'hh-f1':'Programu za maendeleo ya utotoni','hh-f2':'Huduma inayozingatia msongo wa mawazo','hh-f3':'Sanaa, muziki, mchezo na burudani',
+  'ac-lbl':'Maisha ya Kila Siku','ac-title':'Watoto Wetu Wanapitia Nini Kila Siku','ac-sub':'Maendeleo kamili — ya kiakademia, kiroho, ubunifu, na furaha.',
+  'tb-ac':'Masomo','tb-sp':'Maisha ya Kiroho','tb-re':'Burudani na Sanaa',
+  'a1t':'Masomo ya Msingi','a1d':'Hisabati, Kiingereza, Sayansi, na Maarifa yanayolingana na viwango vya kitaifa.',
+  'a2t':'Programu za STEM','a2d':'Majaribio ya sayansi, coding, na ujuzi wa teknolojia.',
+  'a3t':'Kusoma na Maktaba','a3d':'Vitabu vya umri unaofaa na klabu ya vitabu vinavyokua upendo wa kujifunza.',
+  'a4t':'Uandishi wa Ubunifu','a4d':'Hadithi, mashairi, na kujumuika kusaidia watoto kupata sauti yao.',
+  'a5t':'Lugha','a5d':'Mafunzo ya Kiingereza na Kiswahili kuhakikisha kila mtoto yuko tayari duniani.',
+  'a6t':'Ushauri na Mafunzo','a6d':'Mafunzo ya mtu mmoja kwa mtu mmoja kuhakikisha hakuna anayeachwa.',
+  's1t':'Kwaya na Ibada','s1d':'Kwaya ya watoto inakuza ujasiri, kipaji cha muziki, na upendo wa sifa.',
+  's2t':'Kusoma Biblia','s2d':'Masomo ya Maandiko yanayoweka msingi wa kiroho wa kudumu.',
+  's3t':'Huduma ya Jamii','s3d':'Watoto wanatembelea wazee, wanasambaza chakula, na kuwahudumia jirani.',
+  's4t':'Sherehe','s4d':'Krismasi, Pasaka, na likizo za kiroho zinajaza nyumba zetu na tumaini na kicheko.',
+  'r1t':'Michezo na Uathleti','r1d':'Soka, netiboli, volleyball, na riadha vinavyojenga ushirika na afya.',
+  'r2t':'Sanaa ya Kuona','r2d':'Uchoraji na ufundi kuhamasisha kujieleza na ubunifu wa kila mtoto.',
+  'r3t':'Drama na Ukumbi','r3d':'Maonyesho ya jukwaa na warsha za drama vinavyojenga ujasiri.',
+  'r4t':'Masomo ya Muziki','r4d':'Mafunzo ya vyombo na nadharia ya muziki kwa watoto wenye vipaji.',
+  'r5t':'Shughuli za Nje','r5d':'Bustani, matembezi ya asili, na matukio ya nje yanayounganisha watoto na Tanzania.',
+  'r6t':'Michezo na Mafumbo','r6d':'Michezo ya bodi na mafumbo vinavyochochea fikira na kuleta furaha.',
+  'as1':'Masaa ya Kujifunza Kila Siku','as2':'Shughuli za Kila Wiki','as3':'Maendeleo Kamili',
+  'ct-title':'Tusaidie Kuleta Mabadiliko','ct-sub':'Ukarimu wako unawapa chakula, makao, elimu, na nyumba ya upendo. Kila mchango — mdogo au mkubwa — unabadilisha maisha ya mtoto.',
+  'ct-b1':'Changia Sasa','ct-b2':'Kuwa Mdhamini',
+  'sv-lbl':'Tunachotoa','sv-title':'Huduma na Programu',
+  'sv1t':'Ibada ya Jumapili','sv1d':'Kuja ulivyo. Sifa za kupendeza, maandiko ya msingi, na joto la jamii kila Jumapili.',
+  'sv2t':'Huduma ya Vijana','sv2d':'Programu zinazofundisha vijana kukua katika imani, kusudi, na urafiki.',
+  'sv3t':'Kusoma Biblia','sv3d':'Vikundi vya kati ya wiki vinavyochimba zaidi Neno la Mungu.',
+  'sv4t':'Huduma ya Jamii','sv4d':'Kufika kwa wazee, wasio na makao, na familia zinazohitaji — imani bila vitendo haikamiliki.',
+  'cn-lbl':'Wasiliana','cn-title':'Tungependa\nKusikia Kutoka Kwako','cn-sub':'Uwe na maswali, unataka kutembelea, kutoa msaada, au unahitaji sala — tuko hapa, na tunajali.',
+  'cn-e-l':'Tutumie Barua Pepe','cn-p-l':'Tupigie Simu','cn-a-l':'Ofisi Kuu','cn-addr':'International Jesus Light — Kuu\nArusha ya Kati, Tanzania',
+  'tm-lbl':'Nyakati za Ibada',
+  't1l':'Ibada ya Jumapili','t1v':'9:00 AM – 12:00 PM',
+  't2l':'Kusoma Biblia (Jumatano)','t2v':'7:00 PM',
+  't3l':'Ibada ya Ijumaa','t3v':'3:00 PM',
+  't4l':'Sala (Jumamosi)','t4v':'8:00 AM',
+  'fm-title':'Tuma Ujumbe','fm-nm':'Jina Lako','fm-em':'Anwani ya Barua Pepe','fm-sb':'Mada','fm-o1':'Swali la Jumla','fm-o2':'Panga Ziara','fm-o3':'Mchango au Udhamini','fm-o4':'Fursa za Kujitolea','fm-o5':'Ombi la Sala','fm-ms':'Ujumbe Wako','fm-btn':'Tuma Ujumbe','fm-ok':'✓ Asante! Tutawasiliana nawe hivi karibuni.',
+  'ft-desc':'Kujenga imani, kulisha tumaini, kupendeza upendo — tunatumikia Arusha kupitia makanisa manne na nyumba mbili za watoto.',
+  'ft-ql':'Viungo vya Haraka','ft-st':'Nyakati za Ibada','ft-copy':'© 2025 International Jesus Light & Huduma ya Makazi ya Yatima, Arusha, Tanzania. Haki zote zimehifadhiwa.'
+};
+
+let LANG='en';
+const EN={};
+
+function cacheEN(){document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(!EN[k])EN[k]=el.innerHTML})}
+function applyLang(lang){
+  const d=lang==='sw'?SW:null;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    const v=d&&d[k]!==undefined?d[k]:EN[k];
+    if(v!==undefined)el.innerHTML=v.replace(/\n/g,'<br>');
+  });
+  document.documentElement.lang=lang;
+}
+function syncPills(lang){document.querySelectorAll('.lang-opt').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang))}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  cacheEN();
+  document.querySelectorAll('.lang-opt').forEach(b=>{
+    b.addEventListener('click',()=>{
+      if(b.dataset.lang===LANG)return;
+      LANG=b.dataset.lang;
+      applyLang(LANG);
+      syncPills(LANG);
+    });
+  });
+});
+
+/* ── ROBUST IMAGE LOADING ──
+   Adds loading class while image loads, removes on success.
+   On error: hides broken img, shows navy gradient fallback.
+── */
+function initImages(){
+  document.querySelectorAll('img[src]').forEach(img=>{
+    // Skip if already loaded
+    if(img.complete && img.naturalWidth>0) return;
+    
+    const wrap = img.parentElement;
+    if(wrap) wrap.classList.add('img-loading');
+    
+    const onLoad = ()=>{
+      if(wrap) wrap.classList.remove('img-loading');
+      img.style.opacity='1';
+    };
+    const onErr = ()=>{
+      img.style.display='none';
+      if(wrap){
+        wrap.classList.remove('img-loading');
+        wrap.classList.add('img-fb');
+      }
+    };
+    
+    img.style.opacity='0';
+    img.style.transition='opacity .4s ease';
+    img.addEventListener('load', onLoad, {once:true});
+    img.addEventListener('error', onErr, {once:true});
+    
+    // Force re-check already-cached images
+    if(img.complete){
+      if(img.naturalWidth>0) onLoad(); else onErr();
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', initImages);
+</script>
+</body>
+</html>
